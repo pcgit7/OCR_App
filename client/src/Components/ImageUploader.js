@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { UploadImage } from "../Apicalls/ocr";
 import FormData from 'form-data'
+import toast from "react-hot-toast";
 
 function ImageUploader() {
   const [image = "", setImage] = useState("");
@@ -28,10 +29,9 @@ function ImageUploader() {
       const response = await UploadImage(data);
       //dispatch(HideLoader());
       if (response.success) {
-        alert("Profile Pic Updated");
+        toast.success("Profile Pic Updated");
       } else {
-        //toast.error(response.error);
-        console.log(response.message);
+        toast.error(response.error);
       }
     } catch (error) {
       //dispatch(HideLoader());

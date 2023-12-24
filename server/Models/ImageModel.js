@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const ocrSchema = new mongoose.Schema(
+const ImageSchema = new mongoose.Schema(
     {
-        image: {
+        url: {
           type: String,
           required: true,
         },
@@ -24,6 +24,6 @@ const ocrSchema = new mongoose.Schema(
       }
     );
 
-const OCR_model = mongoose.model("OCRs", ocrSchema);
+const Image_Model = mongoose.model("Image", ImageSchema);
 
-module.exports = OCR_model;
+module.exports = Image_Model;

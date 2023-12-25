@@ -5,6 +5,7 @@ const fileUploadMiddleware = require('../Middleware/FileUploadMiddleware');
 const ID = require('../Models/IdModel');
 const axios = require('axios');
 const InformationExtracter = require('../helper/InformationExtractor');
+const cloudinary = require('cloudinary');
 
 //uploading the image
 router.post('/upload-id-image',  async (req, res) => {

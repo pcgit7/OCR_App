@@ -51,7 +51,7 @@ router.post('/upload-id-image',  async (req, res) => {
           method: 'POST',
           url: 'https://api.edenai.run/v2/ocr/ocr',
           headers: {
-            Authorization: `Bearer ${process.env.apiKey}`,
+            Authorization: `Bearer ${process.env.OCR_apiKey}`,
           },
           data: {
             providers: 'google',

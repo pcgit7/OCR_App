@@ -1,5 +1,4 @@
 const Image = require('../Models/ImageModel');
-const cloudinary = require('../cloudinary');
 const vision = require('@google-cloud/vision');
 const router = require('express').Router();
 const fileUploadMiddleware = require('../Middleware/FileUploadMiddleware');
@@ -7,7 +6,7 @@ const ID = require('../Models/IdModel');
 const axios = require('axios');
 const InformationExtracter = require('../helper/InformationExtractor');
 
-
+//uploading the image
 router.post('/upload-id-image',  async (req, res) => {
     try {
       const image = req.body.image;
@@ -87,6 +86,5 @@ router.post('/upload-id-image',  async (req, res) => {
         return res.status(500).json({ success: false, message: 'Internal server error' });
       }
     });
-    
 
 module.exports = router;

@@ -5,13 +5,13 @@ const fileUploadMiddleware = require('../Middleware/FileUploadMiddleware');
 const ID = require('../Models/IdModel');
 const axios = require('axios');
 const InformationExtracter = require('../helper/InformationExtractor');
-const cloudinary = require('cloudinary');
+const cloudinary = require("../cloudinary");
 
 //uploading the image
 router.post('/upload-id-image',  async (req, res) => {
     try {
       const image = req.body.image;
-
+      console.log(image);
       // Upload the image to Cloudinary
       const uploadedImage = await cloudinary.uploader.upload(image, {
         folder: 'OCR App',
@@ -26,6 +26,7 @@ router.post('/upload-id-image',  async (req, res) => {
         imageUrl : uploadedImage.secure_url
       });
     } catch (error) {
+      console.log(error);
       return res.send({
         success: false,
         message: error.message,

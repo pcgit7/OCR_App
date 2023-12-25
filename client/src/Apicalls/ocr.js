@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const backend_url = 'https://ocr-app-backend-vjd7.onrender.com';
-
 export const  UploadImage = async(image) => {
     try 
     {

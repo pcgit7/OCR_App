@@ -23,6 +23,7 @@ router.post('/upload-id-image',  async (req, res) => {
       return res.send({
         success: true,
         message: 'Image uploaded successfully',
+        imageUrl : uploadedImage.secure_url
       });
     } catch (error) {
       return res.send({
@@ -80,6 +81,7 @@ router.post('/upload-id-image',  async (req, res) => {
         const image_ocr = await Image.findOneAndUpdate({url : imageUrl} , {status : newStatus});
         
         return res.json({ success: true, data: newID });
+        
       } catch (error) {
         console.error(error);
         return res.status(500).json({ success: false, message: 'Internal server error' });
